@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Your Amazon Listing Walkthrough — Xneeti</title>
+
+  <!-- Fonts: editorial serif + clean sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #F5F1E8;
+      --cream-deep: #EFE9D9;
+      --ink: #1A1A1A;
+      --ink-soft: #3D3D3D;
+      --ink-light: #6B6B6B;
+      --accent: #C9462C;
+      --accent-soft: #E8A593;
+      --line: #1A1A1A;
+      --warm-tan: #D4B896;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ───────── LAYOUT WRAPPERS ───────── */
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .wrap-narrow {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ───────── TOP BAR ───────── */
+
+    .topbar {
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .topbar-meta {
+      font-size: 13px;
+      color: var(--ink-light);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ───────── HERO ───────── */
+
+    .hero {
+      padding: 80px 0 60px;
+      position: relative;
+    }
+
+    .hero-greeting {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .hero-greeting span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-subtitle {
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-meta-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-weight: 500;
+    }
+
+    .hero-meta-value {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ───────── DELIVERABLES SECTION ───────── */
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-cream-deep {
+      background: var(--cream-deep);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .section-heading {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      max-width: 720px;
+      margin-bottom: 64px;
+      font-weight: 500;
+    }
+
+    .section-heading em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 56px;
+    }
+
+    .deliverable {
+      position: relative;
+    }
+
+    .deliverable-num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 56px;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .deliverable-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .deliverable-body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    /* ───────── OPERATOR / "WHO YOU'LL TALK TO" ───────── */
+
+    .operator {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .operator-photo {
+      background: var(--warm-tan);
+      aspect-ratio: 4 / 5;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: rgba(26,26,26,0.5);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .operator-photo::after {
+      content: 'OPERATOR PHOTO';
+    }
+
+    .operator-content h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .operator-content p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    .operator-signature {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(26,26,26,0.1);
+    }
+
+    .operator-name {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .operator-role {
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    /* ───────── SOCIAL PROOF ───────── */
+
+    .proof {
+      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid rgba(26,26,26,0.08);
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+
+    .proof-label {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 36px;
+      font-weight: 500;
+    }
+
+    .proof-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+
+    .proof-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      color: var(--ink-light);
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .proof-logo:hover {
+      opacity: 1;
+    }
+
+    /* ───────── CTA / CALENDLY ───────── */
+
+    .cta-section {
+      padding: 100px 0 80px;
+    }
+
+    .cta-block {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 80px 64px;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 240px;
+      height: 240px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.2;
+      filter: blur(40px);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .cta-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .cta-heading {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(32px, 4.5vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .cta-heading em {
+      font-style: italic;
+      color: var(--accent-soft);
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(245, 241, 232, 0.75);
+      margin-bottom: 48px;
+      max-width: 580px;
+    }
+
+    .calendly-placeholder {
+      background: rgba(245, 241, 232, 0.05);
+      border: 1px dashed rgba(245, 241, 232, 0.2);
+      padding: 64px 40px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .calendly-placeholder-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      color: var(--accent-soft);
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .calendly-placeholder-body {
+      font-size: 14px;
+      color: rgba(245, 241, 232, 0.6);
+      line-height: 1.6;
+    }
+
+    /* When you have Calendly, swap the placeholder for an inline embed */
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+    }
+
+    /* ───────── FOOTER ───────── */
+
+    .footer {
+      padding: 48px 0 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 32px;
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+
+    .footer-brand {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-brand span { color: var(--accent); }
+
+    .footer-meta {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    /* ───────── ANIMATIONS ───────── */
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-greeting { animation: fade-up 0.6s ease-out 0.1s both; }
+    .hero-title { animation: fade-up 0.7s ease-out 0.2s both; }
+    .hero-subtitle { animation: fade-up 0.7s ease-out 0.35s both; }
+    .hero-meta { animation: fade-up 0.7s ease-out 0.5s both; }
+
+    /* ───────── RESPONSIVE ───────── */
+
+    @media (max-width: 800px) {
+      .deliverables {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .operator {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .operator-photo {
+        aspect-ratio: 1;
+        max-width: 280px;
+      }
+      .proof-logos {
+        gap: 32px;
+      }
+      .cta-block {
+        padding: 56px 32px;
+      }
+      .hero {
+        padding: 56px 0 40px;
+      }
+      .section {
+        padding: 56px 0;
+      }
+      .hero-meta {
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ───────── TOP BAR ───────── -->
+  <div class="wrap">
+    <div class="topbar">
+      <div class="logo">Xneeti<span>.</span></div>
+      <div class="topbar-meta">Prepared for you · 2026</div>
+    </div>
+  </div>
+
+  <!-- ───────── HERO ───────── -->
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-greeting">
+        Hi <span id="firstName">there</span>,
+      </div>
+      <h1 class="hero-title">
+        <span id="brandName">your brand</span>'s Amazon growth walkthrough — <em>ready when you are.</em>
+      </h1>
+      <p class="hero-subtitle">
+        Fifteen minutes with a senior operator who has already looked at your listing. Not a pitch. A walkthrough of what we found, what it's costing you, and what to do next.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Duration</span>
+          <span class="hero-meta-value">15 minutes</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Format</span>
+          <span class="hero-meta-value">Live walkthrough</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Category</span>
+          <span class="hero-meta-value">Pet Supplies</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ───────── DELIVERABLES ───────── -->
+  <div class="section section-cream-deep">
+    <div class="wrap">
+      <div class="section-label">What you'll walk away with</div>
+      <h2 class="section-heading">
+        Three findings from your listing — and <em>what they're quietly costing you.</em>
+      </h2>
+
+      <div class="deliverables">
+        <div class="deliverable">
+          <span class="deliverable-num">01</span>
+          <h3 class="deliverable-title">The exact moment shoppers leave</h3>
+          <p class="deliverable-body">
+            We'll show you the specific point on your listing where buyers hesitate, scroll past, and click away — and what they were looking for that the page didn't give them.
+          </p>
+        </div>
+
+        <div class="deliverable">
+          <span class="deliverable-num">02</span>
+          <h3 class="deliverable-title">Where your ad spend is leaking</h3>
+          <p class="deliverable-body">
+            The clicks you're paying for that never convert — and the listing problem that's silently inflating your real cost per sale, month after month.
+          </p>
+        </div>
+
+        <div class="deliverable">
+          <span class="deliverable-num">03</span>
+          <h3 class="deliverable-title">The fixes that compound</h3>
+          <p class="deliverable-body">
+            Three changes you can make in the next 30 days that move your rank, your conversion, and your margin — without touching a single bid.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────── OPERATOR ───────── -->
+  <div class="section">
+    <div class="wrap">
+      <div class="operator">
+        <div class="operator-photo">
+          <!-- Replace this div's ::after content via image when you have one -->
+        </div>
+        <div class="operator-content">
+          <div class="section-label">Who you'll be talking to</div>
+          <h3>A senior operator who has run real accounts — not a sales rep reading a script.</h3>
+          <p>
+            We've spent years inside Amazon ad accounts and listings — the kind that pay for themselves and the kind that quietly bleed money. This isn't a generic audit. We've already looked at your listing, run the numbers, and mapped what's actually happening.
+          </p>
+          <p>
+            The fifteen minutes is just the fastest way to hand it over.
+          </p>
+          <div class="operator-signature">
+            <span class="operator-name">The Xneeti Team</span>
+            <span class="operator-role">Amazon Growth Operators</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────── SOCIAL PROOF ───────── -->
+  <div class="wrap">
+    <div class="proof">
+      <div class="proof-label">Trusted by pet brands on Amazon</div>
+      <div class="proof-logos">
+        <div class="proof-logo">Brand One</div>
+        <div class="proof-logo">Brand Two</div>
+        <div class="proof-logo">Brand Three</div>
+        <div class="proof-logo">Brand Four</div>
+        <div class="proof-logo">Brand Five</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────── CTA / CALENDLY ───────── -->
+  <div class="wrap">
+    <section class="cta-section">
+      <div class="cta-block">
+        <div class="cta-content">
+          <div class="cta-label">Book your walkthrough</div>
+          <h2 class="cta-heading">
+            Fifteen minutes. One operator. <em>The full picture of your listing.</em>
+          </h2>
+          <p class="cta-subtitle">
+            Pick a time that suits you. We'll send a calendar invite with the meeting link.
+          </p>
+
+          <!--
+            ──────────────────────────────────────────────────
+            CALENDLY EMBED GOES HERE
+            ──────────────────────────────────────────────────
+            When you have your Calendly link, REPLACE the
+            entire <div class="calendly-placeholder"> below
+            with this snippet (uncomment and fill in URL):
+
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/YOUR-LINK"
+                 style="min-width:320px;height:700px;">
+            </div>
+            <script type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js"
+                async></script>
+            ──────────────────────────────────────────────────
+          -->
+
+          <div class="calendly-placeholder">
+            <div class="calendly-placeholder-title">Calendar widget loads here</div>
+            <div class="calendly-placeholder-body">
+              Once you connect your Calendly account, the booking interface will render in this space.<br>
+              Instructions in the HTML comments above this block.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ───────── FOOTER ───────── -->
+  <div class="wrap">
+    <footer class="footer">
+      <div class="footer-brand">Xneeti<span>.</span></div>
+      <div class="footer-meta">
+        AI-powered Amazon growth for serious brands.<br>
+        This page was prepared for one recipient. Not for general distribution.
+      </div>
+    </footer>
+  </div>
+
+  <!-- ───────── PERSONALIZATION SCRIPT ───────── -->
+  <script>
+    // Read URL parameters and personalize the page.
+    // Lemlist will populate the URL like:
+    //   audit.xneetiai.com/pets?firstName=Ahmet&brandName=PawCo
+    //
+    // If parameters are missing, the fallbacks already in the
+    // HTML ("there" and "your brand") will remain.
+
+    (function personalizeFromURL() {
+      const params = new URLSearchParams(window.location.search);
+
+      const firstName = params.get('firstName');
+      const brandName = params.get('brandName');
+
+      if (firstName && firstName.trim() !== '') {
+        document.getElementById('firstName').textContent = firstName.trim();
+      }
+
+      if (brandName && brandName.trim() !== '') {
+        document.getElementById('brandName').textContent = brandName.trim();
+      }
+
+      // Set the page title dynamically too so the browser tab is personal
+      if (brandName) {
+        document.title = brandName + ' — Amazon Growth Walkthrough · Xneeti';
+      }
+    })();
+  </script>
+
+</body>
+</html>
