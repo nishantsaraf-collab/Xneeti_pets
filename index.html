@@ -87,7 +87,6 @@ body{
 .asin-input::placeholder{color:#B0B0BA;font-weight:500}
 .asin-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(45,91,255,.12)}
 .asin-input.optional{border-style:dashed;border-color:var(--line)}
-.email-input{margin-bottom:12px}
 .form-submit{
   width:100%;background:var(--grad);color:#fff;border:none;border-radius:11px;
   padding:14px 24px;font-family:inherit;font-size:15px;font-weight:700;
@@ -323,7 +322,6 @@ body{
             <input class="asin-input optional" type="text" name="asin2" placeholder="B0XXXXXXXX (optional)" pattern="[A-Z0-9]{10}">
             <input class="asin-input optional" type="text" name="asin3" placeholder="B0XXXXXXXX (optional)" pattern="[A-Z0-9]{10}">
           </div>
-          <input class="asin-input email-input" type="email" name="email" placeholder="Where should we send your images?" required>
           <button class="form-submit" type="submit">
             Send me my image directions <span>→</span>
           </button>
@@ -785,18 +783,41 @@ function handleSubmit(e){
   const form=e.target;
   const data=new FormData(form);
   const asins=[data.get('asin1'),data.get('asin2'),data.get('asin3')].filter(x=>x&&x.trim());
-  const email=data.get('email');
+
+  // Include personalization context from the URL so the notification email has it all
+  const params=new URLSearchParams(window.location.search);
+  const firstName=params.get('firstName')||'(not provided)';
+  const brandName=params.get('brandName')||'(not provided)';
+  const category=params.get('category')||'(default)';
+  data.append('firstName',firstName);
+  data.append('brandName',brandName);
+  data.append('category',category);
+  data.append('_subject','New audit submission: '+(brandName!=='(not provided)'?brandName:firstName));
 
   const btn=form.querySelector('.form-submit');
   btn.innerHTML='Sending… <span>⏳</span>';
   btn.style.opacity='.7';
   btn.disabled=true;
 
-  // TODO: replace with real POST to Make/Zapier/HubSpot endpoint
-  console.log('Submission:',{asins,email});
-  setTimeout(()=>{
-    form.innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:38px;margin-bottom:12px">✅</div><div style="font-size:18px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px">Got it. We\'re on it.</div><div style="font-size:13.5px;color:var(--ink-soft);line-height:1.55">Your '+asins.length+' ASIN'+(asins.length>1?'s are':' is')+' with our Content Studio. Image directions will land at '+email+' within 24 hours.</div></div>';
-  },800);
+  fetch('https://formspree.io/f/xeedyzdy', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if(response.ok){
+      form.innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:38px;margin-bottom:12px">✅</div><div style="font-size:18px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px">Got it. We\'re on it.</div><div style="font-size:13.5px;color:var(--ink-soft);line-height:1.55">Your '+asins.length+' ASIN'+(asins.length>1?'s are':' is')+' with our Content Studio. Your image directions will land in your inbox within 24 hours.</div></div>';
+    } else {
+      throw new Error('Submission failed');
+    }
+  })
+  .catch(error => {
+    btn.innerHTML='Try again →';
+    btn.style.opacity='1';
+    btn.disabled=false;
+    alert('Something went wrong. Please try again, or email us directly at hello@xneeti.com');
+    console.error('Form submission error:', error);
+  });
 }
 </script>
 </body>
