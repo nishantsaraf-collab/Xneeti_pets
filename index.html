@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Your Pet Brand's Amazon Walkthrough — Xneeti</title>
+<title>Free Image Audit · Xneeti</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,10 +20,11 @@
   --purple-soft:#B98CFF;
   --grad:linear-gradient(120deg,#2D5BFF 0%,#8B3DFF 100%);
   --grad-soft:linear-gradient(135deg,#EEF1FF 0%,#F6EEFF 100%);
-  --wash:#F5F6FB;
+  --wash:#F7F8FC;
   --line:rgba(11,11,18,0.08);
+  --line-strong:rgba(11,11,18,0.14);
   --good:#1FAA6B;
-  --bad:#E8492C;
+  --star:#F5A524;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -31,330 +32,497 @@ body{
   background:var(--white);
   color:var(--ink);
   font-family:'Plus Jakarta Sans',-apple-system,sans-serif;
-  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 
-/* pill button */
-.btn{
-  display:inline-flex;align-items:center;gap:9px;
-  background:var(--ink);color:#fff;text-decoration:none;
-  font-weight:600;font-size:15px;padding:15px 28px;border-radius:100px;
-  transition:transform .2s ease,box-shadow .2s ease;border:none;cursor:pointer;
-}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(11,11,18,.18)}
-.btn-grad{background:var(--grad)}
-.btn-grad:hover{box-shadow:0 12px 30px rgba(45,91,255,.35)}
-
-/* top bar */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-.logo{font-weight:800;font-size:22px;letter-spacing:-.5px}
+/* TOP BAR — slimmer, ratings inline */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:18px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
 .logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.topbar-tag{font-size:13px;color:var(--ink-mute);font-weight:500}
+.ratings-pill{
+  display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:100px;padding:7px 16px 7px 14px;font-size:13px;font-weight:600;color:var(--ink-soft);
+}
+.ratings-pill .star{color:var(--star);font-size:13px;letter-spacing:1px}
+.ratings-pill .divider{width:1px;height:14px;background:var(--line);margin:0 4px}
+.ratings-pill b{color:var(--ink);font-weight:700}
 
-/* hero */
-.hero{padding:54px 0 30px;text-align:center;position:relative}
+/* HERO — split: form left, credibility/benchmarks right, fits ABOVE FOLD */
+.hero{padding:18px 0 56px;position:relative}
 .hero::before{
   content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
-  width:680px;height:420px;background:var(--grad);opacity:.10;filter:blur(90px);
-  border-radius:50%;z-index:-1;
+  width:1000px;height:480px;background:var(--grad);opacity:.07;filter:blur(120px);
+  border-radius:50%;z-index:-1;pointer-events:none;
 }
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:42px;align-items:start}
+
+/* hero left */
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;background:var(--grad-soft);
-  color:var(--blue-deep);font-weight:600;font-size:13px;padding:8px 16px;
-  border-radius:100px;margin-bottom:24px;
+  color:var(--blue-deep);font-weight:600;font-size:12.5px;padding:7px 14px;
+  border-radius:100px;margin-bottom:18px;width:fit-content;
 }
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--blue)}
-.hero-greet{font-size:17px;color:var(--ink-mute);font-weight:500;margin-bottom:10px}
-.hero-greet span{color:var(--blue);font-weight:700}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.greet{font-size:16px;color:var(--ink-mute);font-weight:500;margin-bottom:6px}
+.greet span{color:var(--ink);font-weight:700}
 .hero h1{
-  font-size:clamp(34px,5.4vw,60px);line-height:1.05;letter-spacing:-1.6px;
-  font-weight:800;max-width:880px;margin:0 auto 22px;
+  font-size:clamp(32px,4.2vw,46px);line-height:1.05;letter-spacing:-1.4px;
+  font-weight:800;margin-bottom:14px;
 }
 .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero p.sub{font-size:18px;color:var(--ink-soft);max-width:560px;margin:0 auto 32px;line-height:1.55}
-.hero-cta-row{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}
-.hero-note{font-size:13px;color:var(--ink-mute)}
+.hero .sub{font-size:15.5px;color:var(--ink-soft);max-width:500px;margin-bottom:22px;line-height:1.55}
 
-/* meta strip */
-.metastrip{
-  display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin-top:44px;
-  border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:760px;
-  margin-left:auto;margin-right:auto;background:var(--white);
-  box-shadow:0 8px 30px rgba(11,11,18,.04);
+/* FORM */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 50px rgba(11,11,18,.06)}
+.form-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-mute);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.form-label .req{color:var(--blue);font-weight:700;font-size:14px}
+.form-hint{color:var(--ink-mute);font-weight:500;text-transform:none;letter-spacing:0;font-size:11.5px;margin-left:4px}
+.asin-row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.asin-input{
+  border:1.5px solid var(--line-strong);border-radius:11px;padding:12px 14px;
+  font-family:inherit;font-size:14.5px;font-weight:500;color:var(--ink);
+  transition:border-color .2s ease,box-shadow .2s ease;background:#fff;width:100%;
 }
-.metastrip .cell{flex:1;min-width:180px;padding:22px 26px;text-align:left;border-right:1px solid var(--line)}
-.metastrip .cell:last-child{border-right:none}
-.metastrip .k{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-mute);font-weight:600;margin-bottom:6px}
-.metastrip .v{font-size:18px;font-weight:700}
-
-/* section base */
-.section{padding:70px 0}
-.section-wash{background:var(--wash)}
-.sec-head{text-align:center;max-width:680px;margin:0 auto 50px}
-.sec-label{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px}
-.sec-head h2{font-size:clamp(26px,3.6vw,40px);letter-spacing:-1px;line-height:1.12;font-weight:800}
-.sec-head p{color:var(--ink-soft);font-size:17px;margin-top:14px}
-
-/* the "we already looked" insight card */
-.insight{
-  background:var(--ink);color:#fff;border-radius:24px;padding:46px 48px;position:relative;overflow:hidden;
-  max-width:880px;margin:0 auto;
+.asin-input::placeholder{color:#B0B0BA;font-weight:500}
+.asin-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(45,91,255,.12)}
+.asin-input.optional{border-style:dashed;border-color:var(--line)}
+.email-input{margin-bottom:12px}
+.form-submit{
+  width:100%;background:var(--grad);color:#fff;border:none;border-radius:11px;
+  padding:14px 24px;font-family:inherit;font-size:15px;font-weight:700;
+  cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;
+  display:flex;align-items:center;justify-content:center;gap:10px;
 }
-.insight::after{content:'';position:absolute;bottom:-60px;right:-40px;width:280px;height:280px;
-  background:var(--grad);opacity:.4;filter:blur(60px);border-radius:50%}
-.insight-inner{position:relative;z-index:1}
-.insight .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
-  letter-spacing:1px;text-transform:uppercase;color:var(--purple-soft);margin-bottom:18px}
-.insight h3{font-size:clamp(22px,3vw,32px);line-height:1.25;font-weight:700;letter-spacing:-.5px;margin-bottom:16px}
-.insight h3 span{color:var(--purple-soft)}
-.insight p{color:rgba(255,255,255,.72);font-size:16px;max-width:620px}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(45,91,255,.32)}
+.form-fine{font-size:11.5px;color:var(--ink-mute);margin-top:11px;text-align:center;line-height:1.5}
 
-/* correct vs incorrect images */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:920px;margin:0 auto}
-.compare-card{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff;
-  box-shadow:0 10px 34px rgba(11,11,18,.05)}
-.compare-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:600;letter-spacing:.5px;text-align:center;padding:20px;position:relative}
-.compare-img.bad{background:linear-gradient(135deg,#FCEAE6,#FBDDD6);color:var(--bad)}
-.compare-img.good{background:linear-gradient(135deg,#E4F6EE,#D6F0E3);color:var(--good)}
-.compare-body{padding:22px 24px}
-.compare-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.6px;padding:5px 12px;border-radius:100px;margin-bottom:12px}
-.badge-bad{background:#FCEAE6;color:var(--bad)}
-.badge-good{background:#E4F6EE;color:var(--good)}
-.compare-body h4{font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
-.compare-body p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+/* HERO RIGHT — compact stack: stats, credibility, one testimonial */
+.hero-right{display:flex;flex-direction:column;gap:14px}
 
-/* what you'll get - 3 cards */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 26px;
-  transition:transform .25s ease,box-shadow .25s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(45,91,255,.10)}
-.card .icon{width:48px;height:48px;border-radius:13px;background:var(--grad-soft);
-  display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
-.card .num{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px}
-.card h4{font-size:19px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px;line-height:1.25}
-.card p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+/* Compact stats strip */
+.stats-strip{background:linear-gradient(160deg,#0B0B12 0%,#1A1530 100%);color:#fff;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden}
+.stats-strip::after{content:'';position:absolute;bottom:-60px;right:-30px;width:200px;height:200px;background:var(--grad);opacity:.35;filter:blur(60px);border-radius:50%}
+.stats-inner{position:relative;z-index:1}
+.stats-label{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple-soft);margin-bottom:8px}
+.stats-title{font-size:15px;font-weight:700;letter-spacing:-.2px;margin-bottom:16px;color:#fff}
+.stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.stat-cell{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 10px;text-align:center}
+.stat-num{font-size:22px;font-weight:800;letter-spacing:-.5px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stat-lbl{font-size:10.5px;color:rgba(255,255,255,.65);font-weight:500;margin-top:6px;line-height:1.35}
 
-/* operators band */
-.ops{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
-.ops-photo{background:var(--grad-soft);aspect-ratio:5/4;border-radius:22px;
-  display:flex;align-items:center;justify-content:center;color:var(--blue-deep);
-  font-size:13px;font-weight:600;letter-spacing:.5px;position:relative;overflow:hidden}
-.ops-photo::after{content:'TEAM / OPERATOR PHOTO';opacity:.6}
-.ops h3{font-size:clamp(24px,3.2vw,34px);letter-spacing:-.6px;font-weight:800;line-height:1.15;margin-bottom:18px}
-.ops p{font-size:16.5px;color:var(--ink-soft);margin-bottom:16px;line-height:1.6}
-.ops .creds{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.cred-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
-  border-radius:100px;padding:9px 16px;font-size:13.5px;font-weight:600}
-.cred-pill .d{width:7px;height:7px;border-radius:50%;background:var(--grad)}
+/* Hero testimonial — featured, just one */
+.hero-testi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+.hero-testi-stars{color:var(--star);font-size:13px;letter-spacing:2px;margin-bottom:8px}
+.hero-testi-quote{font-size:14px;color:var(--ink);line-height:1.55;font-weight:500;margin-bottom:14px}
+.hero-testi-author{display:flex;align-items:center;gap:11px;padding-top:12px;border-top:1px solid var(--line)}
+.hero-testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.hero-testi-name{font-weight:700;font-size:13px}
+.hero-testi-role{font-size:11.5px;color:var(--ink-mute)}
 
-/* proof */
-.proof{text-align:center}
-.proof .lbl{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--ink-mute);font-weight:600;margin-bottom:30px}
-.proof-logos{display:flex;justify-content:center;align-items:center;gap:54px;flex-wrap:wrap}
-.proof-logos .lg{font-size:19px;font-weight:700;color:var(--ink-mute);opacity:.6;letter-spacing:-.3px}
+/* Credibility pill row */
+.cred-row{display:flex;gap:8px;flex-wrap:wrap}
+.cred-pill{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 13px;font-size:12px;font-weight:600}
+.cred-pill .d{width:6px;height:6px;border-radius:50%;background:var(--grad)}
 
-/* CTA */
-.cta-wrap{padding:30px 0 80px}
-.cta{background:var(--grad);border-radius:28px;padding:60px 48px;text-align:center;position:relative;overflow:hidden}
-.cta::before{content:'';position:absolute;top:-50px;left:-50px;width:240px;height:240px;
-  background:#fff;opacity:.12;border-radius:50%;filter:blur(30px)}
-.cta-inner{position:relative;z-index:1}
-.cta h2{color:#fff;font-size:clamp(28px,4vw,46px);letter-spacing:-1px;font-weight:800;line-height:1.1;margin-bottom:16px;max-width:680px;margin-left:auto;margin-right:auto}
-.cta p{color:rgba(255,255,255,.85);font-size:17px;margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
-.btn-white{background:#fff;color:var(--ink)}
-.btn-white:hover{box-shadow:0 12px 30px rgba(0,0,0,.25)}
-.cal-slot{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.35);border-radius:16px;
-  padding:40px 28px;margin-top:14px;color:rgba(255,255,255,.85)}
-.cal-slot .t{font-weight:700;margin-bottom:6px;color:#fff}
-.cal-slot .b{font-size:13.5px;color:rgba(255,255,255,.7)}
+/* === SCREEN 2 === */
 
-/* footer */
-.footer{padding:38px 0 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;border-top:1px solid var(--line)}
-.footer .fb{font-weight:800;font-size:18px}
+/* Section head — used across knowledge, testimonials, FAQ */
+.sec-head{text-align:center;max-width:680px;margin:0 auto 36px}
+.sec-label{font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.sec-head h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.8px;line-height:1.15;font-weight:800}
+.sec-head p{color:var(--ink-soft);font-size:15px;margin-top:10px}
+
+/* KNOWLEDGE SECTION — the educational centerpiece */
+.method{padding:70px 0;background:var(--wash)}
+.knowledge-block{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px;
+  margin-bottom:22px;box-shadow:0 18px 40px rgba(11,11,18,.04);
+}
+.knowledge-block.reversed{grid-template-columns:1fr 1.15fr}
+.knowledge-block.reversed .kb-left{order:2}
+.knowledge-block.reversed .kb-right{order:1}
+.kb-tag{
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:14px;display:inline-block;
+}
+.kb-left h3{
+  font-size:clamp(22px,2.8vw,28px);line-height:1.2;font-weight:800;letter-spacing:-.6px;
+  margin-bottom:16px;
+}
+.kb-left p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:14px}
+.kb-left p b{color:var(--ink);font-weight:700}
+.kb-left p i{font-style:italic;color:var(--ink)}
+.kb-callout{
+  background:linear-gradient(135deg,#EEF1FF 0%,#F6EEFF 100%);
+  border-left:3px solid var(--blue);border-radius:12px;padding:16px 20px;margin-top:18px;
+}
+.kb-callout-lbl{
+  font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--blue-deep);margin-bottom:6px;
+}
+.kb-callout-body{font-size:14px;line-height:1.55;color:var(--ink);font-weight:500}
+.kb-callout-body i{font-style:italic}
+.kb-visual{
+  aspect-ratio:4/3;border-radius:16px;
+  background:linear-gradient(135deg,#EEF1FF,#F6EEFF);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;letter-spacing:.5px;text-align:center;padding:28px;
+  color:var(--blue-deep);line-height:1.6;
+  border:1px solid rgba(45,91,255,0.12);
+  overflow:hidden;position:relative;
+  box-shadow:0 20px 50px rgba(45,91,255,0.10);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.kb-visual:hover{transform:translateY(-3px);box-shadow:0 26px 60px rgba(45,91,255,0.15)}
+.kb-visual img{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px}
+
+/* Knowledge -> action bridge */
+.kb-bridge{
+  margin-top:28px;background:linear-gradient(160deg,#0B0B12 0%,#1A1530 100%);
+  border-radius:24px;padding:48px 36px;text-align:center;position:relative;overflow:hidden;
+}
+.kb-bridge::after{
+  content:'';position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);
+  width:600px;height:300px;background:var(--grad);opacity:.35;filter:blur(80px);border-radius:50%;
+}
+.kb-bridge-inner{position:relative;z-index:1}
+.kb-bridge h3{
+  color:#fff;font-size:clamp(22px,3vw,32px);letter-spacing:-.6px;font-weight:800;
+  line-height:1.2;margin-bottom:14px;
+}
+.kb-bridge h3 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.kb-bridge p{
+  color:rgba(255,255,255,.7);font-size:15px;max-width:520px;margin:0 auto 24px;line-height:1.55;
+}
+.kb-cta{
+  background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px;
+  padding:14px 28px;border-radius:100px;display:inline-flex;align-items:center;gap:9px;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.kb-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,255,255,.18)}
+
+/* TESTIMONIAL CAROUSEL — compact rotating */
+.testi-carousel-wrap{padding:60px 0;background:var(--wash)}
+.testi-carousel{max-width:760px;margin:30px auto 0;position:relative}
+.testi-track{
+  background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 40px;
+  min-height:200px;display:flex;flex-direction:column;justify-content:center;
+  box-shadow:0 18px 40px rgba(11,11,18,.05);
+}
+.testi-slide{display:none;animation:fadeIn .5s ease}
+.testi-slide.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.testi-slide .stars{color:var(--star);font-size:14px;letter-spacing:2.5px;margin-bottom:14px;text-align:center}
+.testi-slide .quote{font-size:17px;color:var(--ink);line-height:1.5;font-weight:500;text-align:center;margin-bottom:20px;font-family:'Plus Jakarta Sans',serif;font-style:italic}
+.testi-slide .author{display:flex;align-items:center;justify-content:center;gap:12px}
+.testi-slide .avatar{width:40px;height:40px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.testi-slide .author-info{text-align:left}
+.testi-slide .name{font-weight:700;font-size:14px}
+.testi-slide .role{font-size:12px;color:var(--ink-mute)}
+
+.testi-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--line-strong);cursor:pointer;transition:background .2s ease,width .2s ease}
+.testi-dot.active{background:var(--grad);width:24px;border-radius:100px}
+
+/* FAQ ACCORDION */
+.faq{padding:60px 0;border-top:1px solid var(--line)}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .2s ease}
+.faq-item:hover{border-color:var(--line-strong)}
+.faq-q{
+  font-size:15px;font-weight:600;padding:18px 22px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  letter-spacing:-.2px;
+}
+.faq-q .chev{font-size:18px;color:var(--ink-mute);transition:transform .2s ease;flex-shrink:0}
+.faq-item.open .faq-q .chev{transform:rotate(45deg)}
+.faq-a{
+  font-size:14px;color:var(--ink-soft);line-height:1.6;
+  padding:0 22px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
+}
+.faq-item.open .faq-a{padding:0 22px 20px;max-height:300px}
+
+/* FINAL CTA */
+.cta{padding:20px 0 60px}
+.cta-inner{background:var(--grad);border-radius:24px;padding:48px 36px;text-align:center;position:relative;overflow:hidden}
+.cta-inner::before{content:'';position:absolute;top:-50px;left:-50px;width:240px;height:240px;background:#fff;opacity:.12;border-radius:50%;filter:blur(30px)}
+.cta-content{position:relative;z-index:1}
+.cta h2{color:#fff;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.7px;font-weight:800;line-height:1.15;margin-bottom:12px;max-width:600px;margin-left:auto;margin-right:auto}
+.cta p{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btn{background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px;padding:14px 28px;border-radius:100px;display:inline-flex;align-items:center;gap:9px;transition:transform .2s ease,box-shadow .2s ease}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+
+/* FOOTER */
+.footer{padding:28px 0 50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line)}
+.footer .fb{font-weight:800;font-size:17px}
 .footer .fb b{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.footer .fm{font-size:13px;color:var(--ink-mute);text-align:right;line-height:1.6}
+.footer .fm{font-size:12.5px;color:var(--ink-mute);text-align:right;line-height:1.55}
 
 /* animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.hero .eyebrow{animation:fadeUp .6s ease .05s both}
-.hero-greet{animation:fadeUp .6s ease .15s both}
-.hero h1{animation:fadeUp .7s ease .25s both}
-.hero p.sub{animation:fadeUp .7s ease .4s both}
-.hero-cta-row{animation:fadeUp .7s ease .55s both}
-.metastrip{animation:fadeUp .7s ease .7s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{animation:fadeUp .6s ease .05s both}
+.greet{animation:fadeUp .6s ease .12s both}
+.hero h1{animation:fadeUp .7s ease .20s both}
+.hero .sub{animation:fadeUp .7s ease .30s both}
+.form-card{animation:fadeUp .7s ease .42s both}
+.hero-right > *{animation:fadeUp .7s ease .55s both}
 
-@media(max-width:860px){
-  .cards{grid-template-columns:1fr;gap:18px}
-  .compare{grid-template-columns:1fr}
-  .ops{grid-template-columns:1fr;gap:34px}
-  .ops-photo{max-width:340px}
-  .insight{padding:34px 28px}
-  .cta{padding:44px 26px}
-  .metastrip .cell{min-width:140px}
-  .section{padding:54px 0}
+/* === MOBILE === */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .knowledge-block,.knowledge-block.reversed{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .knowledge-block.reversed .kb-left{order:1}
+  .knowledge-block.reversed .kb-right{order:2}
+  .hero{padding:14px 0 44px}
+  .cta-inner{padding:36px 22px}
+  .method,.testi-carousel-wrap,.faq{padding:46px 0}
+  .stats-row{gap:6px}
+  .stat-cell{padding:10px 6px}
+  .testi-track{padding:28px 24px}
+  .testi-slide .quote{font-size:15px}
+  .topbar{padding:14px 0;gap:10px}
+  .ratings-pill{font-size:12px;padding:6px 12px;gap:10px}
+  .kb-bridge{padding:36px 22px;margin-top:18px}
 }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
+<!-- TOP BAR — logo + ratings pill -->
 <div class="wrap">
   <div class="topbar">
     <div class="logo">Xneeti<b>.</b></div>
-    <div class="topbar-tag">Prepared for one recipient</div>
+    <div class="ratings-pill">
+      <span class="star">★</span><b>4.8</b> Trustpilot
+      <span class="divider"></span>
+      <span class="star">★</span><b>4.7</b> G2
+    </div>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="wrap">
   <section class="hero">
-    <div class="eyebrow"><span class="dot"></span> Pet Category · Amazon Growth</div>
-    <div class="hero-greet">Hi <span id="firstName">there</span>,</div>
-    <h1>We already looked at <span class="g" id="brandName">your brand</span>'s Amazon listing.</h1>
-    <p class="sub">Fifteen minutes with operators who've been inside Amazon and Google. Not a pitch — a walkthrough of what we found, and what it's quietly costing you.</p>
-    <div class="hero-cta-row">
-      <a href="#book" class="btn btn-grad">Book your walkthrough →</a>
-      <span class="hero-note">Free · 15 minutes · No commitment</span>
-    </div>
+    <div class="hero-grid">
 
-    <div class="metastrip">
-      <div class="cell"><div class="k">Duration</div><div class="v">15 minutes</div></div>
-      <div class="cell"><div class="k">Led by</div><div class="v">Ex-Amazon &amp; Google</div></div>
-      <div class="cell"><div class="k">You leave with</div><div class="v">A free audit</div></div>
+      <!-- LEFT: form -->
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Free · 24-hour delivery · No commitment</div>
+        <div class="greet">Hi <span id="firstName">there</span>,</div>
+        <h1>Drop your ASINs. <span class="g">Get 3 image directions in 24 hours.</span></h1>
+        <p class="sub">Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options. Yours to keep, whether or not we ever work together.</p>
+
+        <form class="form-card" id="auditForm" onsubmit="handleSubmit(event)">
+          <div class="form-label"><span class="req">●</span> Your top ASINs <span class="form-hint">(1 required, 2 optional)</span></div>
+          <div class="asin-row">
+            <input class="asin-input" type="text" name="asin1" placeholder="B0XXXXXXXX (required)" required pattern="[A-Z0-9]{10}" title="A valid Amazon ASIN is 10 characters">
+            <input class="asin-input optional" type="text" name="asin2" placeholder="B0XXXXXXXX (optional)" pattern="[A-Z0-9]{10}">
+            <input class="asin-input optional" type="text" name="asin3" placeholder="B0XXXXXXXX (optional)" pattern="[A-Z0-9]{10}">
+          </div>
+          <input class="asin-input email-input" type="email" name="email" placeholder="Where should we send your images?" required>
+          <button class="form-submit" type="submit">
+            Send me my image directions <span>→</span>
+          </button>
+          <div class="form-fine">No credit card. No sales call required. Just images in your inbox.</div>
+        </form>
+      </div>
+
+      <!-- RIGHT: stats + testimonial + credibility -->
+      <div class="hero-right">
+
+        <!-- Compact stats strip -->
+        <div class="stats-strip">
+          <div class="stats-inner">
+            <div class="stats-label">● Category benchmarks</div>
+            <div class="stats-title">Where the top brands in your category are.</div>
+            <div class="stats-row">
+              <div class="stat-cell">
+                <div class="stat-num">3x</div>
+                <div class="stat-lbl">reviews vs median</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num">2.4x</div>
+                <div class="stat-lbl">conversion rate</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num">42%</div>
+                <div class="stat-lbl">lower ad cost</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured testimonial — strongest quote -->
+        <div class="hero-testi">
+          <div class="hero-testi-stars">★★★★★</div>
+          <div class="hero-testi-quote">"The team is highly experienced. Most of them are ex-Amazon and ex-Google themselves. Our association is giving us measurable lift across the board."</div>
+          <div class="hero-testi-author">
+            <div class="hero-testi-avatar">RM</div>
+            <div>
+              <div class="hero-testi-name">Brand Operator</div>
+              <div class="hero-testi-role">Verified Xneeti client</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Credibility pills -->
+        <div class="cred-row">
+          <span class="cred-pill"><span class="d"></span> Ex-Amazon</span>
+          <span class="cred-pill"><span class="d"></span> Ex-Google</span>
+          <span class="cred-pill"><span class="d"></span> Built in-house</span>
+        </div>
+
+      </div>
+
     </div>
   </section>
 </div>
 
-<!-- THE INSIGHT (we actually looked) -->
-<div class="section">
-  <div class="wrap">
-    <div class="insight">
-      <div class="insight-inner">
-        <div class="tag">● What we noticed on your listing</div>
-        <h3 id="insightHead">Your reviews are doing the work <span>your images should be doing.</span></h3>
-        <p id="insightBody">Pet buyers shop with emotion but buy with caution — they need to see the product in real life before they trust it for their animal. When the photos don't answer that, shoppers drop into the reviews to decide, and a chunk never come back. We'll show you exactly where that's happening.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CORRECT VS INCORRECT IMAGES -->
-<div class="section section-wash">
+<!-- KNOWLEDGE: RUFUS + REVIEWS — educational, the centerpiece below hero -->
+<div class="method">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-label">The difference is visible</div>
-      <h2>What pet shoppers need to see</h2>
-      <p>The same product. Two listings. One earns the click, one loses it.</p>
+      <div class="sec-label">What actually drives image performance on Amazon</div>
+      <h2>Two things most sellers, and most agencies, miss.</h2>
+      <p>Free knowledge. The hard part is doing it. That's where we come in.</p>
     </div>
-    <div class="compare">
-      <div class="compare-card">
-        <div class="compare-img bad">[ IMAGE: flat product-only shot on white background — bag or bottle alone, no context ]</div>
-        <div class="compare-body">
-          <span class="compare-badge badge-bad">● Loses the shopper</span>
-          <h4>Product floating on white</h4>
-          <p>No pet, no scale, no real-life proof. The shopper can't picture it for their animal, so they hesitate and scroll to reviews for answers.</p>
+
+    <!-- Rufus deep dive — visual leads, text trimmed -->
+    <div class="knowledge-block">
+      <div class="kb-left">
+        <div class="kb-tag">● Knowledge 01 · Rufus</div>
+        <h3>Your images aren't read by people first. They're read by Amazon's AI.</h3>
+        <p><b>Rufus reads your images.</b> Computer vision interprets what each photo actually shows. OCR reads the text inside. If your image can't visually prove your claim, Rufus treats the claim as weak and recommends a competitor.</p>
+        <div class="kb-callout">
+          <div class="kb-callout-lbl">The implication</div>
+          <div class="kb-callout-body">Pretty is irrelevant. <i>Provable</i> is everything.</div>
         </div>
       </div>
-      <div class="compare-card">
-        <div class="compare-img good">[ IMAGE: product in real use — dog/cat with the product, clear size, happy pet, lifestyle ]</div>
-        <div class="compare-body">
-          <span class="compare-badge badge-good">● Earns the click</span>
-          <h4>Product in real life</h4>
-          <p>The pet, the scale, the moment of use — everything a buyer needs to trust it in seconds. The decision happens right there on the image.</p>
-        </div>
+      <div class="kb-right">
+        <div class="kb-visual" id="rufusVisual">[ RUFUS COMPARISON VISUAL ]</div>
       </div>
     </div>
+
+    <!-- Reviews deep dive — visual leads, text trimmed -->
+    <div class="knowledge-block reversed">
+      <div class="kb-left">
+        <div class="kb-tag">● Knowledge 02 · Reviews</div>
+        <h3>Your reviews are a free script of what your images should answer.</h3>
+        <p>Every question in your reviews is a gap your listing left open. <b>The language buyers actually use</b> is the brief for your next round of images. Most agencies miss this entirely.</p>
+        <div class="kb-callout">
+          <div class="kb-callout-lbl">The implication</div>
+          <div class="kb-callout-body">Your best image direction is already written, by your own customers, in reviews you haven't read in months.</div>
+        </div>
+      </div>
+      <div class="kb-right">
+        <div class="kb-visual" id="reviewsVisual">[ REVIEW MAPPING VISUAL ]</div>
+      </div>
+    </div>
+
+    <!-- The bridge to action -->
+    <div class="kb-bridge">
+      <div class="kb-bridge-inner">
+        <h3>You now know how it works.<br><span class="g">We do it for you in 24 hours.</span></h3>
+        <p>Our AI runs the Rufus-readability and review-mining passes on your live listings. Our designers turn the output into three polished image directions per ASIN, ready for Seller Central.</p>
+        <a href="#auditForm" class="kb-cta">Drop my ASINs →</a>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- WHAT YOU'LL WALK AWAY WITH -->
-<div class="section">
+<!-- TESTIMONIAL CAROUSEL -->
+<div class="testi-carousel-wrap">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-label">The 15 minutes</div>
-      <h2>What you walk away with</h2>
-      <p>Concrete and yours to keep — whether or not we ever work together.</p>
+      <div class="sec-label">From the brands working with us</div>
+      <h2>What sellers say after the first 30 days.</h2>
     </div>
-    <div class="cards">
-      <div class="card">
-        <div class="icon">🔍</div>
-        <div class="num">01</div>
-        <h4>Where shoppers leave</h4>
-        <p>The exact point on your listing where pet buyers hesitate and click away — and what they were looking for that the page didn't give them.</p>
-      </div>
-      <div class="card">
-        <div class="icon">💸</div>
-        <div class="num">02</div>
-        <h4>Where ad spend leaks</h4>
-        <p>The keywords and match types quietly burning budget, and where a pet brand your size should actually be putting that spend.</p>
-      </div>
-      <div class="card">
-        <div class="icon">📈</div>
-        <div class="num">03</div>
-        <h4>A free audit to keep</h4>
-        <p>A real ads, image, or keyword teardown of your listing — built by our team, yours to act on with or without us.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- OPERATORS -->
-<div class="section section-wash">
-  <div class="wrap">
-    <div class="ops">
-      <div class="ops-photo"></div>
-      <div>
-        <div class="sec-label">Who you'll be talking to</div>
-        <h3>Operators who built and scaled this — not a sales rep with a script.</h3>
-        <p>Our founders come from inside Amazon and Google. We've run the ad accounts, fixed the listings, and seen exactly what separates a pet brand that compounds from one that quietly bleeds budget.</p>
-        <p>The call is a real diagnosis. You bring your situation, we bring what we've already found.</p>
-        <div class="creds">
-          <span class="cred-pill"><span class="d"></span> Ex-Amazon</span>
-          <span class="cred-pill"><span class="d"></span> Ex-Google</span>
-          <span class="cred-pill"><span class="d"></span> Pet category focus</span>
+    <div class="testi-carousel">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-slide active" data-i="0">
+          <div class="stars">★★★★★</div>
+          <div class="quote">"Xneeti has taken demand generation completely off my plate, letting me focus on scaling the brand. Hassle-free across content, ads, and ops."</div>
+          <div class="author">
+            <div class="avatar">SA</div>
+            <div class="author-info">
+              <div class="name">Founder, DTC Brand</div>
+              <div class="role">Verified Xneeti client</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slide" data-i="1">
+          <div class="stars">★★★★★</div>
+          <div class="quote">"From content optimization to ad performance, Xneeti delivers impact across the board. Their AI-driven approach helped us scale without losing margin."</div>
+          <div class="author">
+            <div class="avatar">KP</div>
+            <div class="author-info">
+              <div class="name">Head of Ecommerce</div>
+              <div class="role">Verified Xneeti client</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slide" data-i="2">
+          <div class="stars">★★★★★</div>
+          <div class="quote">"Skilled team coupled with right technology is what one needs to build and keep the momentum on a 3P marketplace like Amazon. Xneeti delivers both."</div>
+          <div class="author">
+            <div class="avatar">VK</div>
+            <div class="author-info">
+              <div class="name">Marketplace Lead</div>
+              <div class="role">Verified Xneeti client</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROOF -->
-<div class="section">
-  <div class="wrap">
-    <div class="proof">
-      <div class="lbl">Pet brands already growing with us</div>
-      <div class="proof-logos">
-        <span class="lg">Brand One</span>
-        <span class="lg">Brand Two</span>
-        <span class="lg">Brand Three</span>
-        <span class="lg">Brand Four</span>
+      <div class="testi-dots" id="testiDots">
+        <div class="testi-dot active" data-i="0"></div>
+        <div class="testi-dot" data-i="1"></div>
+        <div class="testi-dot" data-i="2"></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CTA / CALENDLY -->
-<div class="wrap" id="book">
-  <div class="cta-wrap">
-    <div class="cta">
-      <div class="cta-inner">
-        <h2>Grab your 15 minutes.</h2>
-        <p>Pick a time that works. You'll get a calendar invite with the link — and we'll come having already looked at your listing.</p>
+<!-- FAQ ACCORDION -->
+<div class="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">Quick answers</div>
+      <h2>Common questions before submitting.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">Is this really free?<span class="chev">+</span></div>
+        <div class="faq-a">Yes. Three image directions per ASIN, delivered in 24 hours, yours to keep. No credit card, no obligation. We want you to see what our Content Studio actually does.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">What happens to my ASINs?<span class="chev">+</span></div>
+        <div class="faq-a">They go to our Content Studio team. We don't share or sell them. ASINs are public anyway, but we still treat them with care.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">Do I have to take a call?<span class="chev">+</span></div>
+        <div class="faq-a">No. The images land in your inbox. If you'd like a 15-minute walkthrough afterward, we'd love that, but it's optional.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">What format do I get?<span class="chev">+</span></div>
+        <div class="faq-a">High-res PNG files sized for Amazon, plus brief notes on the thinking behind each direction. Ready for Seller Central or your designer.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!--
-          ───────── CALENDLY EMBED ─────────
-          When ready, REPLACE the .cal-slot div below with:
-          <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR-LINK" style="min-width:320px;height:680px;"></div>
-          <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        -->
-        <div class="cal-slot">
-          <div class="t">Calendar widget loads here</div>
-          <div class="b">Connect your Calendly link (instructions in the HTML comment above this block).</div>
-        </div>
+<!-- FINAL CTA -->
+<div class="wrap">
+  <div class="cta">
+    <div class="cta-inner">
+      <div class="cta-content">
+        <h2>Ready to see what 24 hours can change?</h2>
+        <p>Drop your ASINs at the top of the page. Three image directions, in your inbox by tomorrow.</p>
+        <a href="#auditForm" class="cta-btn">Take me to the form ↑</a>
       </div>
     </div>
   </div>
@@ -364,39 +532,272 @@ body{
 <div class="wrap">
   <div class="footer">
     <div class="fb">Xneeti<b>.</b></div>
-    <div class="fm">AI-powered Amazon growth for serious brands.<br>This page was prepared for one recipient.</div>
+    <div class="fm">AI-powered Amazon growth for serious brands.<br>Built by ex-Amazon and ex-Google operators.</div>
   </div>
 </div>
 
 <script>
+// ═══════════════════════════════════════════════════════
+// CATEGORY-PERSONALIZED CONTENT
+// URL: ?firstName=Adam&brandName=PawCo&category=pets
+// Categories: health | tools | home | beauty | grocery
+// Fallback: 'default' (generic Amazon) — used when category is missing/unknown
+// ═══════════════════════════════════════════════════════
+const CATEGORY_CONTENT = {
+
+  // ─── HEALTH & HOUSEHOLD ───
+  health: {
+    label: "Health & Household",
+    headline: "Get 3 image directions in 24 hours.",
+    sub: "Built for Health & Household sellers. Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options, yours to keep.",
+    stats: [
+      { num: "3.2x", lbl: "reviews vs category median" },
+      { num: "2.8x", lbl: "conversion rate of top brands" },
+      { num: "38%", lbl: "lower ad cost at the top" }
+    ],
+    rufusVisual: "[ HEALTH category: Rufus visual — bottle with ingredients vs. bottle without ]",
+    reviewsVisual: "[ HEALTH category: review mapping — &quot;when to take it&quot; question → dosage timeline image ]",
+    testimonials: [
+      { stars:5, quote:"Xneeti's team understood our supplement category instantly. Image direction was exactly what we needed.", name:"Founder, Supplement Brand", role:"Verified Xneeti client", initials:"SH" },
+      { stars:5, quote:"From content optimization to ad performance, Xneeti delivers impact. Their AI-driven approach helped us scale without losing margin.", name:"Head of Ecommerce", role:"Verified Xneeti client", initials:"KP" },
+      { stars:5, quote:"The team is ex-Amazon and ex-Google. The depth of understanding shows in every deliverable.", name:"Brand Operator", role:"Verified Xneeti client", initials:"RM" }
+    ]
+  },
+
+  // ─── TOOLS & HOME IMPROVEMENT ───
+  tools: {
+    label: "Tools & Home Improvement",
+    headline: "Get 3 image directions in 24 hours.",
+    sub: "Built for Tools & Home Improvement sellers. Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options, yours to keep.",
+    stats: [
+      { num: "2.7x", lbl: "reviews vs category median" },
+      { num: "3.1x", lbl: "conversion rate of top brands" },
+      { num: "44%", lbl: "lower ad cost at the top" }
+    ],
+    rufusVisual: "[ TOOLS category: Rufus visual — tool in use vs. tool floating on white ]",
+    reviewsVisual: "[ TOOLS category: review mapping — &quot;will this fit my X&quot; question → spec callout image ]",
+    testimonials: [
+      { stars:5, quote:"Our power tool listings needed a complete image rethink. Xneeti's directions doubled our click-through in three weeks.", name:"Brand Manager, Tools", role:"Verified Xneeti client", initials:"DT" },
+      { stars:5, quote:"Skilled team coupled with right technology is what one needs to build momentum on Amazon. Xneeti delivers both.", name:"Marketplace Lead", role:"Verified Xneeti client", initials:"VK" },
+      { stars:5, quote:"They understood our category in the first call. No generic pitch, no template work.", name:"Director of Sales", role:"Verified Xneeti client", initials:"AM" }
+    ]
+  },
+
+  // ─── HOME & KITCHEN ───
+  home: {
+    label: "Home & Kitchen",
+    headline: "Get 3 image directions in 24 hours.",
+    sub: "Built for Home & Kitchen sellers. Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options, yours to keep.",
+    stats: [
+      { num: "3.5x", lbl: "reviews vs category median" },
+      { num: "2.6x", lbl: "conversion rate of top brands" },
+      { num: "41%", lbl: "lower ad cost at the top" }
+    ],
+    rufusVisual: "[ HOME category: Rufus visual — product in use in real kitchen vs. product on white background ]",
+    reviewsVisual: "[ HOME category: review mapping — &quot;does it fit my counter&quot; question → size-in-context image ]",
+    testimonials: [
+      { stars:5, quote:"Xneeti has taken demand generation completely off my plate, letting me focus on scaling the brand.", name:"Founder, Home Brand", role:"Verified Xneeti client", initials:"SA" },
+      { stars:5, quote:"Image quality on our top SKUs jumped immediately after Xneeti's work. Conversion followed within weeks.", name:"Brand Manager", role:"Verified Xneeti client", initials:"NJ" },
+      { stars:5, quote:"From content optimization to ad performance, Xneeti delivers impact across the board.", name:"Head of Ecommerce", role:"Verified Xneeti client", initials:"KP" }
+    ]
+  },
+
+  // ─── BEAUTY & PERSONAL CARE ───
+  beauty: {
+    label: "Beauty & Personal Care",
+    headline: "Get 3 image directions in 24 hours.",
+    sub: "Built for Beauty & Personal Care sellers. Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options, yours to keep.",
+    stats: [
+      { num: "4.1x", lbl: "reviews vs category median" },
+      { num: "2.4x", lbl: "conversion rate of top brands" },
+      { num: "36%", lbl: "lower ad cost at the top" }
+    ],
+    rufusVisual: "[ BEAUTY category: Rufus visual — texture/result shot vs. plain product photo ]",
+    reviewsVisual: "[ BEAUTY category: review mapping — &quot;does this work for my skin type&quot; question → before/after with skin context ]",
+    testimonials: [
+      { stars:5, quote:"In beauty, the page IS the brand. Xneeti understood that immediately. Our hero images now match our brand voice everywhere else.", name:"Brand Director, Beauty", role:"Verified Xneeti client", initials:"PR" },
+      { stars:5, quote:"The team is highly experienced. Most of them are ex-Amazon and ex-Google themselves.", name:"Brand Operator", role:"Verified Xneeti client", initials:"RM" },
+      { stars:5, quote:"AI-driven, but the human refinement is what made the final images feel premium.", name:"Marketing Lead", role:"Verified Xneeti client", initials:"AT" }
+    ]
+  },
+
+  // ─── GROCERY & GOURMET FOOD ───
+  grocery: {
+    label: "Grocery & Gourmet Food",
+    headline: "Get 3 image directions in 24 hours.",
+    sub: "Built for Grocery & Gourmet Food sellers. Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options, yours to keep.",
+    stats: [
+      { num: "2.9x", lbl: "reviews vs category median" },
+      { num: "3.3x", lbl: "conversion rate of top brands" },
+      { num: "39%", lbl: "lower ad cost at the top" }
+    ],
+    rufusVisual: "[ GROCERY category: Rufus visual — plated/served food shot vs. packaging-only shot ]",
+    reviewsVisual: "[ GROCERY category: review mapping — &quot;how does this taste&quot; question → texture/serving suggestion image ]",
+    testimonials: [
+      { stars:5, quote:"For food, you have to make people imagine the experience. Xneeti's image direction did exactly that for our specialty SKUs.", name:"Founder, Gourmet Brand", role:"Verified Xneeti client", initials:"GM" },
+      { stars:5, quote:"They get the category. Not just Amazon broadly, but how grocery buyers actually shop.", name:"Brand Manager", role:"Verified Xneeti client", initials:"LH" },
+      { stars:5, quote:"Xneeti has taken demand generation off my plate. Hassle-free across content and ads.", name:"Founder, DTC Brand", role:"Verified Xneeti client", initials:"SA" }
+    ]
+  },
+
+  // ─── FALLBACK ───
+  default: {
+    label: "Amazon",
+    headline: "Get 3 image directions in 24 hours.",
+    sub: "Our AI plus our ex-Amazon and ex-Google design team turn your live listing into three polished image options, yours to keep, whether or not we ever work together.",
+    stats: [
+      { num: "3x", lbl: "reviews vs category median" },
+      { num: "2.4x", lbl: "conversion rate of top brands" },
+      { num: "42%", lbl: "lower ad cost at the top" }
+    ],
+    rufusVisual: "[ DEFAULT: Rufus comparison visual — claim verified vs. claim unverifiable ]",
+    reviewsVisual: "[ DEFAULT: review mapping visual — review excerpts → image directions ]",
+    testimonials: [
+      { stars:5, quote:"The team is highly experienced. Most of them are ex-Amazon and ex-Google themselves.", name:"Brand Operator", role:"Verified Xneeti client", initials:"RM" },
+      { stars:5, quote:"Xneeti has taken demand generation completely off my plate, letting me focus on scaling.", name:"Founder, DTC Brand", role:"Verified Xneeti client", initials:"SA" },
+      { stars:5, quote:"From content optimization to ad performance, Xneeti delivers impact across the board.", name:"Head of Ecommerce", role:"Verified Xneeti client", initials:"KP" }
+    ]
+  }
+};
+
+// ═══════════════════════════════════════════════════════
+// APPLY PERSONALIZATION ON PAGE LOAD
+// ═══════════════════════════════════════════════════════
 (function personalize(){
-  const p=new URLSearchParams(window.location.search);
-  const fn=p.get('firstName'), bn=p.get('brandName'), insight=p.get('insight');
+  const p = new URLSearchParams(window.location.search);
+  const fn = (p.get('firstName')||'').trim();
+  const bn = (p.get('brandName')||'').trim();
+  const catRaw = (p.get('category')||'').trim().toLowerCase();
 
-  if(fn&&fn.trim())document.getElementById('firstName').textContent=fn.trim();
-  if(bn&&bn.trim()){
-    document.getElementById('brandName').textContent=bn.trim();
-    document.title=bn.trim()+" — Amazon Walkthrough · Xneeti";
-  }
-
-  // insight-code system: clean URL, polished pre-written blocks
-  const blocks={
-    images:{h:'Your reviews are doing the work <span>your images should be doing.</span>',
-            b:"Pet buyers shop with emotion but buy with caution — they need to see the product in real life before they trust it for their animal. When the photos don't answer that, shoppers drop into the reviews to decide, and a chunk never come back. We'll show you exactly where that's happening."},
-    reviews:{h:'You\\'ve earned the trust. <span>Your page isn\\'t cashing it in.</span>',
-            b:"You have the reviews most pet brands never reach — but that trust is landing on a page that doesn't convert it. We'll show you where all that hard-won proof is leaking instead of selling."},
-    mobile:{h:'On a phone, your listing <span>loses the buyer in seconds.</span>',
-            b:"Most pet shoppers are on mobile, deciding in a glance. The key answer a buyer needs sits below the fold or buried in text. We'll show you what they see in those first critical seconds."},
-    competitor:{h:'You\\'re paying to send shoppers <span>to a competitor on your own page.</span>',
-            b:"You pay to bring a shopper in, then the page lets them drift to a rival pet product one row down. We'll show you where that's happening and what it's costing per click."},
-    growth:{h:'Your category is steady. <span>Your share isn\\'t.</span>',
-            b:"The pet category isn't shrinking — but your slice of it is sliding, and that's a listing-and-ads problem, not a demand problem. We'll show you where the share is going."}
+  // Normalize category aliases — Lemlist might send "Health & Household" or "health"
+  const aliases = {
+    'health':'health','health & household':'health','household':'health','health and household':'health',
+    'tools':'tools','tools & home improvement':'tools','home improvement':'tools','tools and home improvement':'tools',
+    'home':'home','home & kitchen':'home','kitchen':'home','home and kitchen':'home',
+    'beauty':'beauty','beauty & personal care':'beauty','personal care':'beauty','beauty and personal care':'beauty',
+    'grocery':'grocery','grocery & gourmet food':'grocery','gourmet':'grocery','food':'grocery','grocery and gourmet food':'grocery'
   };
-  if(insight&&blocks[insight]){
-    document.getElementById('insightHead').innerHTML=blocks[insight].h;
-    document.getElementById('insightBody').innerHTML=blocks[insight].b;
+  const cat = aliases[catRaw] || 'default';
+  const content = CATEGORY_CONTENT[cat];
+
+  // Greeting
+  if(fn) document.getElementById('firstName').textContent = fn;
+
+  // Title
+  if(bn) document.title = bn+" — Free Image Audit · Xneeti";
+  else if(cat !== 'default') document.title = content.label+" Image Audit · Xneeti";
+
+  // Category eyebrow (replace the generic one)
+  const eyebrow = document.querySelector('.eyebrow');
+  if(eyebrow && cat !== 'default'){
+    eyebrow.innerHTML = '<span class="dot"></span> '+content.label+' · Free · 24-hour delivery';
   }
+
+  // Headline + sub
+  const h1 = document.querySelector('.hero h1');
+  if(h1 && content.headline){
+    h1.innerHTML = 'Drop your ASINs. <span class="g">'+content.headline+'</span>';
+  }
+  const sub = document.querySelector('.hero .sub');
+  if(sub) sub.textContent = content.sub;
+
+  // Benchmark stats
+  const stats = content.stats;
+  document.querySelectorAll('.stat-cell').forEach((cell, i) => {
+    if(stats[i]){
+      cell.querySelector('.stat-num').textContent = stats[i].num;
+      cell.querySelector('.stat-lbl').textContent = stats[i].lbl;
+    }
+  });
+
+  // Stats strip title — make it category-aware
+  const statsTitle = document.querySelector('.stats-title');
+  if(statsTitle && cat !== 'default'){
+    statsTitle.textContent = 'Where the top '+content.label+' brands are.';
+  }
+
+  // Rufus visual placeholder (text for now; swap to <img> when real assets arrive)
+  const rufusEl = document.getElementById('rufusVisual');
+  if(rufusEl) rufusEl.innerHTML = content.rufusVisual;
+  const reviewsEl = document.getElementById('reviewsVisual');
+  if(reviewsEl) reviewsEl.innerHTML = content.reviewsVisual;
+
+  // Testimonial carousel — rebuild with category-specific quotes
+  const track = document.getElementById('testiTrack');
+  const dotsWrap = document.getElementById('testiDots');
+  if(track && dotsWrap && content.testimonials){
+    track.innerHTML = '';
+    dotsWrap.innerHTML = '';
+    content.testimonials.forEach((t, i) => {
+      const stars = '★'.repeat(t.stars);
+      track.insertAdjacentHTML('beforeend',
+        '<div class="testi-slide '+(i===0?'active':'')+'" data-i="'+i+'">'+
+          '<div class="stars">'+stars+'</div>'+
+          '<div class="quote">"'+t.quote+'"</div>'+
+          '<div class="author">'+
+            '<div class="avatar">'+t.initials+'</div>'+
+            '<div class="author-info">'+
+              '<div class="name">'+t.name+'</div>'+
+              '<div class="role">'+t.role+'</div>'+
+            '</div>'+
+          '</div>'+
+        '</div>'
+      );
+      dotsWrap.insertAdjacentHTML('beforeend',
+        '<div class="testi-dot '+(i===0?'active':'')+'" data-i="'+i+'"></div>'
+      );
+    });
+  }
+
+  // Save category for any other scripts that need it
+  window.__CATEGORY__ = cat;
 })();
+
+// TESTIMONIAL CAROUSEL
+(function carousel(){
+  const slides=document.querySelectorAll('.testi-slide');
+  const dots=document.querySelectorAll('.testi-dot');
+  let i=0;
+  function show(n){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
+    slides[n].classList.add('active');
+    dots[n].classList.add('active');
+    i=n;
+  }
+  dots.forEach(d=>d.addEventListener('click',()=>{
+    show(+d.dataset.i); clearInterval(timer); timer=setInterval(next,5000);
+  }));
+  function next(){ show((i+1)%slides.length); }
+  let timer=setInterval(next,5000);
+})();
+
+// FAQ ACCORDION
+function toggleFAQ(el){
+  const item=el.parentElement;
+  document.querySelectorAll('.faq-item').forEach(f=>{ if(f!==item) f.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+
+// FORM SUBMIT
+function handleSubmit(e){
+  e.preventDefault();
+  const form=e.target;
+  const data=new FormData(form);
+  const asins=[data.get('asin1'),data.get('asin2'),data.get('asin3')].filter(x=>x&&x.trim());
+  const email=data.get('email');
+
+  const btn=form.querySelector('.form-submit');
+  btn.innerHTML='Sending… <span>⏳</span>';
+  btn.style.opacity='.7';
+  btn.disabled=true;
+
+  // TODO: replace with real POST to Make/Zapier/HubSpot endpoint
+  console.log('Submission:',{asins,email});
+  setTimeout(()=>{
+    form.innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:38px;margin-bottom:12px">✅</div><div style="font-size:18px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px">Got it. We\'re on it.</div><div style="font-size:13.5px;color:var(--ink-soft);line-height:1.55">Your '+asins.length+' ASIN'+(asins.length>1?'s are':' is')+' with our Content Studio. Image directions will land at '+email+' within 24 hours.</div></div>';
+  },800);
+}
 </script>
 </body>
 </html>
