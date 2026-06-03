@@ -39,7 +39,8 @@ body{
 
 /* TOP BAR */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:18px;flex-wrap:wrap}
-.logo{font-weight:800;font-size:22px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);transition:opacity .2s ease;cursor:pointer}
+.logo:hover{opacity:.75}
 .logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .ratings-pill{
   display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
@@ -71,6 +72,7 @@ body{
 }
 .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero .sub{font-size:13.5px;color:var(--ink-soft);max-width:520px;margin:0 auto;line-height:1.5}
+.hero .sub b{color:var(--ink);font-weight:700}
 
 /* BEFORE / AFTER COMPARISON GRID — tightened, with callouts */
 .compare-grid{
@@ -128,6 +130,14 @@ body{
 .form-intro{margin-bottom:18px}
 .form-intro h2{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.6px;margin-bottom:8px;line-height:1.2}
 .form-intro p{color:var(--ink-soft);font-size:15px;line-height:1.55}
+.form-intro p b{color:var(--ink);font-weight:700}
+.selectivity-line{
+  display:inline-block;margin-top:12px;
+  background:linear-gradient(135deg,#FFF7E6,#FFEFD0);
+  color:#7A4F00;border:1px solid #F5A52440;
+  padding:6px 14px;border-radius:100px;
+  font-size:12px;font-weight:700;letter-spacing:-.1px;
+}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 18px 50px rgba(11,11,18,.06);text-align:left}
 .form-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-mute);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .form-label .req{color:var(--blue);font-weight:700;font-size:14px}
@@ -164,49 +174,43 @@ body{
 
 /* KNOWLEDGE SECTION */
 .method{padding:70px 0;background:var(--wash)}
-.knowledge-block{
-  display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:center;
-  background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px;
-  margin-bottom:22px;box-shadow:0 18px 40px rgba(11,11,18,.04);
+
+/* GROWTH LEVERS — side-by-side cards */
+.levers-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  margin-bottom:22px;
 }
-.knowledge-block.reversed{grid-template-columns:1fr 1.15fr}
-.knowledge-block.reversed .kb-left{order:2}
-.knowledge-block.reversed .kb-right{order:1}
-.kb-tag{
+.lever-card{
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:32px 28px;
+  box-shadow:0 14px 36px rgba(11,11,18,.05);
+  display:flex;flex-direction:column;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.lever-card:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(11,11,18,.08)}
+.lever-num{
   font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   margin-bottom:14px;display:inline-block;
 }
-.kb-left h3{
-  font-size:clamp(22px,2.8vw,28px);line-height:1.2;font-weight:800;letter-spacing:-.6px;
-  margin-bottom:16px;
+.lever-card h3{
+  font-size:clamp(19px,2.3vw,23px);line-height:1.25;font-weight:800;letter-spacing:-.4px;
+  margin-bottom:14px;color:var(--ink);
 }
-.kb-left p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:14px}
-.kb-left p b{color:var(--ink);font-weight:700}
-.kb-left p i{font-style:italic;color:var(--ink)}
-.kb-callout{
+.lever-card p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:18px;flex:1}
+.lever-card p b{color:var(--ink);font-weight:700}
+.lever-card p i{font-style:italic;color:var(--ink)}
+.lever-callout{
   background:linear-gradient(135deg,#EEF1FF 0%,#F6EEFF 100%);
-  border-left:3px solid var(--blue);border-radius:12px;padding:16px 20px;margin-top:18px;
+  border-left:3px solid var(--blue);border-radius:10px;padding:14px 16px;
+  display:flex;flex-direction:column;gap:5px;
 }
-.kb-callout-lbl{
-  font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--blue-deep);margin-bottom:6px;
+.lever-callout .lc-lbl{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--blue-deep);
 }
-.kb-callout-body{font-size:14px;line-height:1.55;color:var(--ink);font-weight:500}
-.kb-callout-body i{font-style:italic}
-.kb-visual{
-  aspect-ratio:4/3;border-radius:16px;
-  background:linear-gradient(135deg,#EEF1FF,#F6EEFF);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:600;letter-spacing:.5px;text-align:center;padding:28px;
-  color:var(--blue-deep);line-height:1.6;
-  border:1px solid rgba(45,91,255,0.12);
-  overflow:hidden;position:relative;
-  box-shadow:0 20px 50px rgba(45,91,255,0.10);
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.kb-visual:hover{transform:translateY(-3px);box-shadow:0 26px 60px rgba(45,91,255,0.15)}
-.kb-visual img{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px}
+.lever-callout .lc-body{font-size:13.5px;line-height:1.5;color:var(--ink);font-weight:500}
+.lever-callout .lc-body i{font-style:italic}
 
 /* KNOWLEDGE BRIDGE */
 .kb-bridge{
@@ -284,7 +288,8 @@ body{
 
 /* FOOTER */
 .footer{padding:28px 0 50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line)}
-.footer .fb{font-weight:800;font-size:17px}
+.footer .fb{font-weight:800;font-size:17px;text-decoration:none;color:var(--ink);transition:opacity .2s ease;cursor:pointer}
+.footer .fb:hover{opacity:.75}
 .footer .fb b{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .footer .fm{font-size:12.5px;color:var(--ink-mute);text-align:right;line-height:1.55}
 
@@ -306,9 +311,8 @@ body{
   .callout-chip{padding:7px 9px;font-size:10.5px;gap:7px}
   .callout-chip .arrow{width:15px;height:15px;font-size:9px}
   .callout-chip .ctext b{font-size:9.5px;margin-bottom:1px}
-  .knowledge-block,.knowledge-block.reversed{grid-template-columns:1fr;gap:24px;padding:28px 24px}
-  .knowledge-block.reversed .kb-left{order:1}
-  .knowledge-block.reversed .kb-right{order:2}
+  .levers-grid{grid-template-columns:1fr;gap:14px}
+  .lever-card{padding:24px 22px}
   .hero{padding:8px 0 28px}
   .hero-top{margin-bottom:14px}
   .cta-inner{padding:36px 22px}
@@ -336,7 +340,7 @@ body{
 <!-- TOP BAR -->
 <div class="wrap">
   <div class="topbar">
-    <div class="logo">Xneeti<b>.</b></div>
+    <a href="https://xneeti.com" target="_blank" rel="noopener" class="logo">Xneeti<b>.</b></a>
     <div class="ratings-pill">
       <span class="star">★</span><b>4.8</b> Trustpilot
       <span class="divider"></span>
@@ -349,10 +353,9 @@ body{
 <div class="wrap">
   <section class="hero">
     <div class="hero-top">
-      <div class="eyebrow"><span class="dot"></span> Free · 24-hour delivery · No commitment</div>
       <div class="greet">Hi <span id="firstName">there</span>,</div>
-      <h1>See the difference <span class="g">24 hours can make.</span></h1>
-      <p class="sub">Our AI plus our ex-Amazon and ex-Google design team rebuild your product images so Amazon's shopping assistant actually reads them.</p>
+      <h1>Your product is good. Your listing images <span class="g">may be costing you sales.</span></h1>
+      <p class="sub">Our AI Content Studio rebuilds product images for the way Amazon's shopping assistant actually reads and recommends products. <b>Trusted by 100+ brands.</b></p>
     </div>
 
     <!-- BEFORE/AFTER COMPARISON GRID — two pairs, each stacked -->
@@ -391,7 +394,8 @@ body{
     <div class="form-wrap" id="formArea">
       <div class="form-intro">
         <h2>Want this for your listing?</h2>
-        <p>Drop up to 3 ASINs. We send back image directions in 24 hours, yours to keep.</p>
+        <p>Drop up to 3 ASINs. We send back <b>3 high-quality image concepts</b>, created by our Content Studio and audited by our specialists, in <b>24 hours</b>. <b>Yours to keep.</b></p>
+        <div class="selectivity-line">⚡ We're onboarding a limited number of brands this cycle.</div>
       </div>
       <form class="form-card" id="auditForm" onsubmit="handleSubmit(event)">
         <div class="form-label"><span class="req">●</span> Your top ASINs <span class="form-hint">(1 required, 2 optional)</span></div>
@@ -418,45 +422,37 @@ body{
 <div class="method">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-label">What actually drives image performance on Amazon</div>
-      <h2>Two things most sellers, and most agencies, miss.</h2>
-      <p>Free knowledge. The hard part is doing it. That's where we come in.</p>
+      <div class="sec-label">The reality of Amazon today</div>
+      <h2>Your growth levers are hidden in your listing page.</h2>
+      <p>Two of them most teams never touch. Both are doing damage right now.</p>
     </div>
 
-    <div class="knowledge-block">
-      <div class="kb-left">
-        <div class="kb-tag">● Knowledge 01 · Rufus</div>
-        <h3>Your images aren't read by people first. They're read by Amazon's AI.</h3>
-        <p><b>Rufus reads your images.</b> Computer vision interprets what each photo actually shows. OCR reads the text inside. If your image can't visually prove your claim, Rufus treats the claim as weak and recommends a competitor.</p>
-        <div class="kb-callout">
-          <div class="kb-callout-lbl">The implication</div>
-          <div class="kb-callout-body">Pretty is irrelevant. <i>Provable</i> is everything.</div>
+    <!-- Growth Levers side-by-side -->
+    <div class="levers-grid">
+      <div class="lever-card">
+        <div class="lever-num">Growth Lever 01</div>
+        <h3>Amazon's AI reads your images before any human does.</h3>
+        <p><b>Rufus uses computer vision and OCR</b> to interpret every photo on your listing. If your image can't visually prove the claim in your bullet points, Rufus quietly recommends a competitor whose photos can.</p>
+        <div class="lever-callout">
+          <span class="lc-lbl">The implication</span>
+          <span class="lc-body">Pretty is irrelevant. <i>Provable</i> is everything.</span>
         </div>
       </div>
-      <div class="kb-right">
-        <div class="kb-visual" id="rufusVisual">[ RUFUS COMPARISON VISUAL ]</div>
-      </div>
-    </div>
-
-    <div class="knowledge-block reversed">
-      <div class="kb-left">
-        <div class="kb-tag">● Knowledge 02 · Reviews</div>
-        <h3>Your reviews are a free script of what your images should answer.</h3>
-        <p>Every question in your reviews is a gap your listing left open. <b>The language buyers actually use</b> is the brief for your next round of images. Most agencies miss this entirely.</p>
-        <div class="kb-callout">
-          <div class="kb-callout-lbl">The implication</div>
-          <div class="kb-callout-body">Your best image direction is already written, by your own customers, in reviews you haven't read in months.</div>
+      <div class="lever-card">
+        <div class="lever-num">Growth Lever 02</div>
+        <h3>Your reviews are a free brief most agencies never read.</h3>
+        <p>Every question in your reviews is a gap your listing left open. <b>The language buyers actually use</b> is the brief for your next round of photos. Most teams skip this entirely.</p>
+        <div class="lever-callout">
+          <span class="lc-lbl">The implication</span>
+          <span class="lc-body">The best image direction is written by your own customers in reviews you haven't opened in months.</span>
         </div>
-      </div>
-      <div class="kb-right">
-        <div class="kb-visual" id="reviewsVisual">[ REVIEW MAPPING VISUAL ]</div>
       </div>
     </div>
 
     <div class="kb-bridge">
       <div class="kb-bridge-inner">
         <h3>You now know how it works.<br><span class="g">We do it for you in 24 hours.</span></h3>
-        <p>Our AI runs the Rufus-readability and review-mining passes on your live listings. Our designers turn the output into three polished image directions per ASIN.</p>
+        <p>Our AI runs the Rufus-readability and review-mining passes on your live listings. Our specialists turn the output into three polished image concepts per ASIN.</p>
         <a href="#formArea" class="kb-cta">Drop my ASINs →</a>
       </div>
     </div>
@@ -559,7 +555,7 @@ body{
 <!-- FOOTER -->
 <div class="wrap">
   <div class="footer">
-    <div class="fb">Xneeti<b>.</b></div>
+    <a href="https://xneeti.com" target="_blank" rel="noopener" class="fb">Xneeti<b>.</b></a>
     <div class="fm">AI-powered Amazon growth for serious brands.<br>Built by ex-Amazon and ex-Google operators.</div>
   </div>
 </div>
